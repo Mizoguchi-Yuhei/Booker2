@@ -10,6 +10,93 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+    <% if user_signed_in? %>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container">
+            <a class="navbar-brand" href="/"><span>Bookers</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+                <li>
+                  <%= link_to user_path(current_user) do %>
+                  <i class="fas fa-home nav-link text-light"> Home</i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to users_path do %>
+                  <i class="fas fa-users nav-link text-light"> Users</i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to books_path do %>
+                  <i class="fas fa-book-open nav-link text-light"> Books</i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" > logout</i>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <% else %>
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container">
+            <a class="navbar-brand" href="/"><span>Bookers</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+                <li>
+                  <%= link_to root_path do %>
+                  <i class="fas fa-home nav-link text-light"> Home</i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to homes_about_path do %>
+                  <i class="fas fa-link nav-link text-light"> About</i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_registration_path do %>
+                  <i class="fas fa-user-plus nav-link text-light"> sign up</i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_session_path do %>
+                  <i class="fas fa-sign-in-alt nav-link text-light"> login</i>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    <% end %>
+    </header>
+
+    <main>
+      <div class="container">
+        <p class="notice"><%= notice %></p>
+        <%= yield %>
+      </div>
+    </main>
+
+    <footer>
+      <div class='container mt-5'>
+      	<div class='row'>
+        	<div class='mx-auto'>
+        		<p>CopyRight Infratop.inc</p>
+        	</div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
