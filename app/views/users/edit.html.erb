@@ -5,7 +5,7 @@
       <%= render 'books/error', model: @user %>
       <div class="form-group">
         <div class="form-title">Name</div>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, class: "form-control" %>
       </div>
       <div class="form-group">
         <div class="form-title">Image</div>
@@ -13,7 +13,7 @@
       </div>
       <div class="form-group">
         <div class="form-title">Introduction</div>
-        <%= f.text_area :introduction %>
+        <%= f.text_area :introduction, class: "form-control" %>
       </div>
       <div>
         <%= f.submit "Update User", class: 'btn btn-secondary' %>
