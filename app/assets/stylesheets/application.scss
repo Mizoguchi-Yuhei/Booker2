@@ -16,3 +16,24 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.table, .form-group {
+  margin-bottom: 16px;
+}
+
+.form-title {
+  margin-bottom: 8px;
+}
+
+.notice {
+  color: green;
+}
+
+.error_msg {
+  color: red;
+}
