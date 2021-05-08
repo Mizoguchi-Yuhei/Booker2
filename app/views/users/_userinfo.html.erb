@@ -16,10 +16,12 @@
     </tr>
   </tbody>
 </table>
-<% if user == current_user %>
-  <%= link_to edit_user_path(current_user) do %>
-    <i class="btn btn-outline-secondary btn-block fas fa-user-cog edit-user"></i>
+<div class="user-edit">
+  <% if user == current_user %>
+    <%= link_to edit_user_path(current_user) do %>
+      <i class="btn btn-outline-secondary btn-block fas fa-user-cog edit-user"></i>
+    <% end %>
+  <% else %>
+    <%= link_to '',edit_user_path(user), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
   <% end %>
-<% else %>
-  <%= link_to '',edit_user_path(user), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
-<% end %>
+</div>
